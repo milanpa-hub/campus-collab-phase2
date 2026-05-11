@@ -1,0 +1,18 @@
+[
+    {
+        "user_id": "host-demo-1",
+        "full_name": "Demo Host",
+        "email": "host@udel.edu",
+        "password": "host123",
+        "role": "Host",
+        "registered_at": "2026-05-11 10:56:19.091314"
+    },
+    {
+        "user_id": "contrib-demo-1",
+        "full_name": "Demo Contributor",
+        "email": "student@udel.edu",
+        "password": "student123",
+        "role": "Contributor",
+        "registered_at": "2026-05-11 10:56:19.091314"
+    }
+]
