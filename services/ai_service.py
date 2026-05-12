@@ -1,4 +1,9 @@
-import streamlit as st
+import os
+
+try:
+    import streamlit as st
+except Exception:
+    st = None
 
 try:
     from openai import OpenAI
@@ -11,8 +16,10 @@ class AIChatAssistant:
         self.api_key = None
         self.client = None
 
-        if "OPENAI_API_KEY" in st.secrets:
+        if st and hasattr(st, "secrets") and "OPENAI_API_KEY" in st.secrets:
             self.api_key = st.secrets["OPENAI_API_KEY"]
+        elif "OPENAI_API_KEY" in os.environ:
+            self.api_key = os.environ["OPENAI_API_KEY"]
 
         if self.api_key and OpenAI is not None:
             self.client = OpenAI(api_key=self.api_key)
@@ -39,7 +46,7 @@ User question: {prompt}
 Give a concise helpful answer focused on missing items, event descriptions, summaries, and next actions.
 '''
         response = self.client.chat.completions.create(
-            model="gpt-4.1-mini",
+            model="gpt-4o-mini",
             messages=[
                 {"role": "system", "content": "You are a helpful event planning assistant inside a college collaboration app."},
                 {"role": "user", "content": context},
@@ -61,7 +68,7 @@ User question: {prompt}
 Give a concise helpful answer focused on what still needs items, what the user claimed, and which event to join.
 '''
         response = self.client.chat.completions.create(
-            model="gpt-4.1-mini",
+            model="gpt-4o-mini",
             messages=[
                 {"role": "system", "content": "You are a helpful campus collaboration assistant inside a college app."},
                 {"role": "user", "content": context},
