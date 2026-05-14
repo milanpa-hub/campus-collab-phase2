@@ -39,3 +39,12 @@ This project uses Streamlit for the application interface.  Some features may re
 - GitHub
 - VS Code
 
+## Campus Locations
+
+The app includes a dropdown menu with the following campus locations:
+
+- Morris Library
+- STAR Campus
+- Perkins Student Center
+- Trabant Student Center
+- Lerner Hall
