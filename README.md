@@ -30,3 +30,4 @@ OPENAI_API_KEY = "your-key-here"
 ## Local Setup Notes
 This project uses Streamlit for the application interface.  Some features may require a local `.streamlit/secrets.toml` file with API Keys that are not included in the Github Repository for security reasons. 
 
+## Drop Down Menu AI
